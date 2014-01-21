@@ -13,7 +13,7 @@ app.configure(function(){
 
   app.set('port', config.port);
   app.set('view engine', 'ejs');
-  app.set('views', __dirname + '/views');
+  app.set('views', __dirname + '/templates');
 
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
