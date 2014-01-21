@@ -1,0 +1,28 @@
+#!/bin/sh
+
+startup()
+{
+        node /home/zcq/workspace/todo/app.js --port= &
+}
+shutdown()
+{
+        ps -ef|grep "/home/zcq/workspace/todo/app.js" |grep -v grep|awk '{print $2}'|xargs kill -9
+        echo "All service instance shutdown"
+}
+restart()
+{
+    shutdown
+    startup
+}
+case "$1" in
+        start)
+                startup
+                ;;
+        stop)
+                shutdown
+                ;;
+        restart)
+                restart
+                ;;
+esac
+exit
